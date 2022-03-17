@@ -5,9 +5,15 @@ import reducer from './reducer'
 // I SWITCHED TO PERMANENT DOMAIN
 const url = 'https://course-api.com/react-useReducer-cart-project'
 const AppContext = React.createContext()
+const initialState = {
+  loading: false,
+  cart: cartItem,
+  total: 0,
+  amount: 0,
+}
 
 const AppProvider = ({ children }) => {
-  const [cart, setCart] = useState(cartItems)
+  const [state, dispach] = useReducer(reducer, initialState)
 
   return (
     <AppContext.Provider
